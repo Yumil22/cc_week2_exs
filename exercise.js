@@ -16,7 +16,19 @@
 /** DO NOT CHANGE THE FUNCTION NAME **/
 const merged = (arrA, arrB) => {
     /* Only make changes below this comment */
-    return 1;
+    new_arrAB = arrA.concat(arrB)
+
+    for ( let i = 0; i <new_arrAB.length; i++ ){
+        for ( let j = 0; j < new_arrAB.length - i -1; j++ ){
+            if (new_arrAB[j] > new_arrAB[j + 1]){
+                const temp = new_arrAB[j];
+                new_arrAB[j] = new_arrAB[j + 1];
+                new_arrAB[j + 1] = temp;
+            }
+        }
+    }
+
+    return new_arrAB;
     /* Only make changes below this comment */
 }
 
@@ -32,8 +44,17 @@ const merged = (arrA, arrB) => {
 /** DO NOT CHANGE THE FUNCTION NAME **/
 const substrGen = (str) => {
     /* Only make changes below this comment */
-    
+    const substrings = []; 
+
+    for (let i = 0; i < str.length; i++) {
+        for (let j = i + 1; j <= str.length; j++) {
+            substrings.push(str.substring(i, j));
+        }
+    }
+
+    return substrings;
     /* Only make changes below this comment */
+
 }
 
 //TODO: EXERCICE 3
@@ -48,17 +69,45 @@ const substrGen = (str) => {
 /** DO NOT CHANGE THE FUNCTION NAME **/
 const spinal = (str) => {
     /* Only make changes below this comment */
-    
-    
+    // const oracion_minusc = str.toLowerCase();
+    const palabras = str.split(" ")
+
+    const result = [];
+
+    palabras.forEach(palabra =>{
+        const caracteres = palabra.split("");
+        for(let i = 1; i < caracteres.length; i ++ ){
+            if( caracteres[i] === caracteres[i].toUpperCase()){
+                caracteres.splice(i, 0, '-');
+                i ++
+            }
+        }
+        result.push(caracteres.join(""))
+
+    })
+
+    const union = result.join("-").toLowerCase();
+
+    return union
     /* Only make changes below this comment */
 }
 
 
-//TODO: EXERCICE 3
+//TODO: EXERCICE 4
 
 /** DO NOT CHANGE THE FUNCTION NAME **/
 const bubbleSort = (arr) => {
     /* Only make changes below this comment */
+
+    for ( let i = 0; i <arr.length; i++ ){
+        for ( let j = 0; j < arr.length - i -1; j++ ){
+            if (arr[j] > arr[j + 1]){
+                const temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
     
     return arr
     /* Only make changes below this comment */
