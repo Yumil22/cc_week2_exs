@@ -16,7 +16,19 @@
 /** DO NOT CHANGE THE FUNCTION NAME **/
 const merged = (arrA, arrB) => {
     /* Only make changes below this comment */
-    return 1;
+    let newArr = [];
+    arrA.forEach((numA) => newArr.push(numA));
+    arrB.forEach((numB) => newArr.push(numB));
+    for (let i = 0; i < newArr.length; i++) {
+        for (let j = 0; j < (newArr.length - i - 1); j++) {
+            if (newArr[j] > newArr[j + 1]) {
+                let temp = newArr[j];
+                newArr[j] = newArr[j + 1];
+                newArr[j + 1] = temp;
+            }
+        }
+    }
+    return newArr;
     /* Only make changes below this comment */
 }
 
@@ -32,7 +44,18 @@ const merged = (arrA, arrB) => {
 /** DO NOT CHANGE THE FUNCTION NAME **/
 const substrGen = (str) => {
     /* Only make changes below this comment */
-    
+    let arr = Array.from(str);
+    let substr = [];
+    for (let i = 0; i < arr.length; i++) {
+        substr.push(arr[i]);
+        for (let j = i + 1; j < arr.length; j++) {
+            let temp = [];
+            temp.push(substr[substr.length - 1] + arr[j]);
+            substr.push(temp[0]);
+            temp = [];
+        }
+    }
+    return substr;
     /* Only make changes below this comment */
 }
 
@@ -48,19 +71,31 @@ const substrGen = (str) => {
 /** DO NOT CHANGE THE FUNCTION NAME **/
 const spinal = (str) => {
     /* Only make changes below this comment */
-    
-    
+    return str
+        .replace(/\s+/g, "-")
+        .replace(/([A-Z])/g, "-$1")    
+        .replace(/-+/g, "-")
+        .replace(/^-/, "")
+        .toLowerCase();
     /* Only make changes below this comment */
 }
 
 
-//TODO: EXERCICE 3
+//TODO: EXERCICE 4
 
 /** DO NOT CHANGE THE FUNCTION NAME **/
 const bubbleSort = (arr) => {
     /* Only make changes below this comment */
-    
-    return arr
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < (arr.length - i - 1); j++) {
+            if (arr[j] > arr[j + 1]) {
+                let temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    return arr;
     /* Only make changes below this comment */
 }
 
